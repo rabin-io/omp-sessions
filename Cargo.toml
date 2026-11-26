@@ -1,0 +1,27 @@
+[package]
+name = "omp-sessions"
+version = "0.1.0"
+edition = "2024"
+description = "OMP session browser TUI"
+license = "MIT"
+repository = "https://github.com/rabin-io/omp-sessions"
+readme = "README.md"
+keywords = ["tui", "ratatui", "omp", "sessions", "cli"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+crossterm = "0.29"
+ratatui = "0.30"
+rusqlite = { version = "0.43", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+unicode-width = "0.2"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
